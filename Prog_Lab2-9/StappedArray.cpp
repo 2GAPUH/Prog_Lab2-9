@@ -206,3 +206,30 @@ void BinFileArrayFilling(int*** array1, int** columnsCount, int* rows)
 
 	printf_s("Succesful filling.\n");
 }
+
+void AddLine(int*** array1, int** columnsCount, int* rows)
+{
+	*columnsCount = (int*)realloc((*columnsCount), sizeof(int) * (*rows + 1));
+
+	while (true)
+	{
+		printf_s("Enter count of elements: ");
+		scanf_s("%d", &((*columnsCount)[*rows])); 
+		if ((*columnsCount)[*rows] <= 0) 
+			printf_s("Invalid value!\n");
+		else
+			break;
+	}
+
+	*array1 = (int**)realloc((*array1), sizeof(int*) * (*rows + 1)); 
+
+	(*array1)[*rows] = (int*)malloc(sizeof(int) * (*columnsCount)[*rows]); 
+
+	for (int i = 0; i < (*columnsCount)[*rows]; i++) 
+	{
+		printf_s("Enter array[%d][%d]: ", *rows, i + 1); 
+		scanf_s("%d", &(*array1)[*rows][i]);
+	}
+
+	(*rows)++; 
+}

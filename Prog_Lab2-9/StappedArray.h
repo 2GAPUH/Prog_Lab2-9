@@ -1,5 +1,6 @@
 #pragma once
 
+void AddLine(int*** array1, int** columnsCount, int* rows);
 void GetRows(int* rows);
 void MainMalloc(int*** array1, int** columnsCount, int rows);
 void ManualArrayFilling(int** array1, int* columnsCount, int rows);
